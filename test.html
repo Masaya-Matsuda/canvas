@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Canvas tutorial</title>
+    <script type="text/javascript">
+    function draw(){
+        var canvas = document.getElementById('tutorial');
+        if (canvas.getContext){
+            var ctx = canvas.getContext('2d');
+            //円
+            ctx.beginPath();
+            ctx.arc(200,150,100,0,Math.PI*2,false);
+            ctx.stroke();
+        };
+    };
+    
+    function chgimg(){
+        var canvas = document.getElementById('tutorial');
+        if (canvas.getContext){
+            var dataURI = canvas.toDataURL() ;
+            var image = document.getElementById( "tutorial2" );
+            image.src = dataURI ;
+        };
+    };
+    
+    </script>
+    <style type="text/css">
+      canvas { border: 1px solid #999; }
+    </style>
+  </head>
+  <body>
+    <input type="button" value="作画" onclick="draw()">
+    <canvas id="tutorial" width="400" height="300"></canvas>
+    <input type="button" value="画像に変換" onclick="chgimg()">
+    <div><img id="tutorial2" src="dataURI"></div>
+  </body>
+</html>
